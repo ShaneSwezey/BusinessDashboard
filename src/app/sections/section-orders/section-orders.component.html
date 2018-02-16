@@ -13,9 +13,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let order of orders">
-        <td> {{ order.id }}</td>
-        <td> {{ order.customer.name }}</td>
-        <td> {{ order.total }}</td>
+        <td>{{ order.id }}</td>
+        <td>{{ order.customer.name }}</td>
+        <td>{{ order.total }}</td>
         <td>{{ order.placed | date: 'short' }}</td>
         <td>{{ order.fulfilled | date: 'short' }}</td>
         <td> Status </td>
