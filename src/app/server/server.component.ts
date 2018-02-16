@@ -9,10 +9,29 @@ import { Server } from '../shared/server';
 export class ServerComponent implements OnInit {
 
   @Input() serverInput : Server; 
+  color: string;
+  buttonText: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.setServerStatus(this.serverInput.isOnline);
+  }
+
+  setServerStatus(isOnline: boolean) {
+    if (isOnline) {
+      this.serverInput.isOnline = true;
+      this.color = '#66BB6A';
+      this.buttonText = 'Shut Down';
+    } else {
+      this.serverInput.isOnline = false;
+      this.color = '#FF6B6B';
+      this.buttonText = 'Start';
+    }
+  }
+
+  toggleStatus(onlineStatus: boolean) {
+    this.setServerStatus(!onlineStatus);
   }
 
 }
